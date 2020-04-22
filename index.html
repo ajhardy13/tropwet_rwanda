@@ -50,7 +50,7 @@ font-size: 10pt;
 var map = L.map('map', {
 center: [-2.1136488503393465, 30.23917689215634],
 zoom: 10,
-minZoom: 8,
+minZoom: 1,
 maxZoom: 12
 });
 
@@ -73,9 +73,9 @@ var white = L.tileLayer("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAA
 	
 
 // Overlay layers (TMS)
-var lyr = L.tileLayer('./fractions_tiles_v2/{z}/{x}/{y}.png', {tms: true, opacity: 0.7, attribution: "", minZoom: 1, maxZoom: 12});
+var lyr = L.tileLayer('./fractions_tiles/{z}/{x}/{y}.png', {tms: true, opacity: 0.7, attribution: "", minZoom: 1, maxZoom: 12});
 //var lyr = L.tileLayer('https://drive.google.com/drive/u/0/folders/1iBxJrA7nLaKzZVraPAEDkWEIqOYkGdgl/{z}/{x}/{y}.png', {tms: true, opacity: 0.7, attribution: "", minZoom: 1, maxZoom: 12});
-var lyr2 = L.tileLayer('./class_tiles_v2/{z}/{x}/{y}.png', {tms: true, opacity: 0.7, attribution: "", minZoom: 1, maxZoom: 12});
+var lyr2 = L.tileLayer('./class_tiles/{z}/{x}/{y}.png', {tms: true, opacity: 0.7, attribution: "", minZoom: 1, maxZoom: 12});
 
 
 var basemaps = {"OpenStreetMap": osm, "CartoDB Positron": cartodb, "Stamen Toner": toner, "Without background": white}
