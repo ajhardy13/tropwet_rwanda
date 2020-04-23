@@ -1,7 +1,7 @@
 # tropwet_rwanda
 A simple leaflet map to show TropWet outputs
 
-## Link to my live map (replace with link to your site)
+## Link to my live map
 
 https://ajhardy13.github.io/tropwet_rwanda/ 
 
