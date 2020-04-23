@@ -28,7 +28,7 @@ border-radius: 5px;
 text-align: right;
 }
 .title {
-font-size: 18pt;
+font-size: 14pt;
 font-weight: bold;
 }
 .src {
@@ -73,13 +73,37 @@ var white = L.tileLayer("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAA
 	
 
 // Overlay layers (TMS)
-var lyr = L.tileLayer('./fractions_tiles/{z}/{x}/{y}.png', {tms: true, opacity: 0.7, attribution: "", minZoom: 1, maxZoom: 12});
-//var lyr = L.tileLayer('https://drive.google.com/drive/u/0/folders/1iBxJrA7nLaKzZVraPAEDkWEIqOYkGdgl/{z}/{x}/{y}.png', {tms: true, opacity: 0.7, attribution: "", minZoom: 1, maxZoom: 12});
-var lyr2 = L.tileLayer('./class_tiles/{z}/{x}/{y}.png', {tms: true, opacity: 0.7, attribution: "", minZoom: 1, maxZoom: 12});
+var frac_jan = L.tileLayer('./tiles_Fractions_Jan_to_March_2016_to_2020/{z}/{x}/{y}.png', {tms: true, opacity: 0.7, attribution: "", minZoom: 1, maxZoom: 12});
+var class_jan = L.tileLayer('./tiles_Classified_Output_Jan_To_March_2016_to_2020/{z}/{x}/{y}.png', {tms: true, opacity: 0.7, attribution: "", minZoom: 1, maxZoom: 12});
+	
+var frac_apr = L.tileLayer('./tiles_Fractions_April_to_June_2016_to_2020/{z}/{x}/{y}.png', {tms: true, opacity: 0.7, attribution: "", minZoom: 1, maxZoom: 12});
+var class_apr = L.tileLayer('./tiles_Classified_Output_April_to_June_2016_to_2020/{z}/{x}/{y}.png', {tms: true, opacity: 0.7, attribution: "", minZoom: 1, maxZoom: 12});
 
+var frac_jul = L.tileLayer('./tiles_Fractions_July_to_September_2016_to_2020/{z}/{x}/{y}.png', {tms: true, opacity: 0.7, attribution: "", minZoom: 1, maxZoom: 12});
+var class_jul = L.tileLayer('./tiles_Classified_Output_July_to_September_2016_to_2020/{z}/{x}/{y}.png', {tms: true, opacity: 0.7, attribution: "", minZoom: 1, maxZoom: 12});
+
+var frac_oct = L.tileLayer('./tiles_Fractions_October_To_December_2016_to_2020/{z}/{x}/{y}.png', {tms: true, opacity: 0.7, attribution: "", minZoom: 1, maxZoom: 12});
+var class_oct = L.tileLayer('./tiles_Classified_Output_October_To_December_2016_to_2020/{z}/{x}/{y}.png', {tms: true, opacity: 0.7, attribution: "", minZoom: 1, maxZoom: 12});
+	
+	
+	
 
 var basemaps = {"OpenStreetMap": osm, "CartoDB Positron": cartodb, "Stamen Toner": toner, "Without background": white}
-var overlaymaps = {"Fractions": lyr, "Classified": lyr2}
+
+var overlaymaps = {
+	"Fractions Jan to Mar (2016-2020)": frac_jan, 
+	"Fractions Apr to Jun (2016-2020)": frac_apr, 
+	"Fractions Jul to Sep (2016-2020)": frac_jul, 
+	"Fractions Oct to Dec (2016-2020)": frac_oct, 
+	"Classified  Jan to Mar (2016-2020)": class_jan,
+	"Classified Apr to Jun (2016-2020)": class_apr,
+	"Classified Jul to Sep (2016-2020)": class_jul,
+	"Classified Oct to Dec (2016-2020)": class_oct
+}
+
+
+
+
 
 // Title
 var title = L.control();
