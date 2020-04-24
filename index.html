@@ -150,9 +150,9 @@ var overlaymaps = {
 
 
 
-var legend = L.control({ position: "bottomleft" });
+var legend1 = L.control({ position: "bottomleft" });
 
-legend.onAdd = function(map) {
+legend1.onAdd = function(map) {
   var div = L.DomUtil.create("div", "legend");
   div.innerHTML += "<h4>Class</h4>";
   div.innerHTML += '<i style="background: #d1d0cc"></i><span>Mixed</span><br>';
@@ -163,7 +163,17 @@ legend.onAdd = function(map) {
   div.innerHTML += '<i style="background: #328536"></i><span>Dense Veg</span><br>';
   div.innerHTML += '<i style="background: #cbbf7c"></i><span>Bare Soil</span><br>';	
   div.innerHTML += '<i style="background: #000000"></i><span>Unclassified</span><br>';	
-  div.innerHTML += "<h4>Frequency (%) Wet</h4>";
+   return div;
+};
+
+legend1.addTo(map)
+	
+	
+var legend2 = L.control({ position: "bottomleft" });
+
+legend2.onAdd = function(map) {
+  var div = L.DomUtil.create("div", "legend");
+	div.innerHTML += "<h4>Frequency (%) Wet</h4>";
 	div.innerHTML += '<i style="background: #ffffcc"></i><span>0%</span><br>';
 	div.innerHTML += '<i style="background: #a1dab4"></i><span>25%</span><br>';
 	div.innerHTML += '<i style="background: #41b6c4"></i><span>50%</span><br>';
@@ -174,8 +184,34 @@ legend.onAdd = function(map) {
   return div;
 };
 
-legend.addTo(map)
+legend2.addTo(map)
+	
+var legend3 = L.control({ position: "bottomleft" });
+	
+legend3.onAdd = function(map) {
+  var div = L.DomUtil.create("div", "legend");
+	div.innerHTML += "<h4>Fractions</h4>";
+	div.innerHTML += '<i style="background: #ff0000"></i><span>Water</span><br>';
+	div.innerHTML += '<i style="background: #00FF00"></i><span>Vegetation</span><br>';
+	div.innerHTML += '<i style="background: #0000ff"></i><span>Sand</span><br>';
+  return div;
+};
 
+legend3.addTo(map)
+	
+	
+	
+// Add and remove layers
+map.on('baselayerchange', function (eventLayer) {
+    // Switch to the Permafrost legend...
+    if (eventLayer.name === 'Frequency inundation (2016-2020)') {
+        map.removeControl(legend1);
+        legend2.addTo(map);
+    } else { // Or switch to the treeline legend...
+        map.removeControl(legend2);
+        legend1.addTo(map);
+    }
+});
 
 
 // Title
