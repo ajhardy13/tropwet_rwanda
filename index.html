@@ -166,7 +166,7 @@ legend1.onAdd = function(map) {
    return div;
 };
 
-legend1.addTo(map)
+//legend1.addTo(map)
 	
 	
 var legend2 = L.control({ position: "bottomleft" });
@@ -184,7 +184,7 @@ legend2.onAdd = function(map) {
   return div;
 };
 
-legend2.addTo(map)
+//legend2.addTo(map)
 	
 var legend3 = L.control({ position: "bottomleft" });
 	
@@ -197,19 +197,28 @@ legend3.onAdd = function(map) {
   return div;
 };
 
-legend3.addTo(map)
+//legend3.addTo(map)
 	
 	
 	
 // Add and remove layers
-map.on('baselayerchange', function (eventLayer) {
-    // Switch to the Permafrost legend...
+map.on('overlayadd', function (eventLayer) {
     if (eventLayer.name === 'Frequency inundation (2016-2020)') {
         map.removeControl(legend1);
+		map.removeControl(legend3);
         legend2.addTo(map);
+    } else if (eventLayer.name.includes('Fractions')) {
+        map.removeControl(legend1);
+		map.removeControl(legend2);
+        legend3.addTo(map);
+    } else if (eventLayer.name.includes( 'Classified')) {
+        map.removeControl(legend3);
+		map.removeControl(legend2);
+        legend1.addTo(map)
     } else { // Or switch to the treeline legend...
+        map.removeControl(legend1);
         map.removeControl(legend2);
-        legend1.addTo(map);
+        map.removeControl(legend3);
     }
 });
 
