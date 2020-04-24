@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <TileMap version="1.0.0" tilemapservice="http://tms.osgeo.org/1.0.0">
+      <Title>Percentage_Frequency_Inundation_1_to_12_2016_to_2020_byte_stretch.tif</Title>
+      <Abstract></Abstract>
+      <SRS>EPSG:3857</SRS>
+      <BoundingBox minx="28.79064552991701" miny="-2.89622178669421" maxx="30.93856513855985" maxy="-1.00216053096374"/>
+      <Origin x="28.79064552991701" y="-2.89622178669421"/>
+      <TileFormat width="256" height="256" mime-type="image/png" extension="png"/>
+      <TileSets profile="mercator">
+        <TileSet href="13" units-per-pixel="19.10925706787109" order="13"/>
+        <TileSet href="14" units-per-pixel="9.55462853393555" order="14"/>
+      </TileSets>
+    </TileMap>
+    
